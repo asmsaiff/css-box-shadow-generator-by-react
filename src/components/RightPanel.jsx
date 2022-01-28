@@ -22,45 +22,28 @@ export class RightPanel extends Component {
         })
     }
 
-    handleBorderRadiusChange = (e) => {
+    handleBox = (e) => {
         this.setState({
-            borderRadius: e.target.value
-        })
-    }
-
-    handleBoxHeightChange = (e) => {
-        this.setState({
-            boxHeight: e.target.value
-        })
-    }
-
-    handleBoxWidthChange = (e) => {
-        this.setState({
-            boxWidth: e.target.value
-        })
-    }
-
-    onTrigger = (e) => {
-        this.setState({
-            boxHeight: e.target.value
+            [e.target.name]: e.target.value
         })
 
-        this.props.parentCallback(e.target.value);
+        this.props.boxProps(this.state);
         e.preventDefault();
     }
 
     render() {
+        console.log(this.state);
         return <>
             <h6>Box Properties</h6>
             <hr />
 
-            <div className='my-6'>
+            <form className='my-6' onChange={this.handleBox}>
                 <div>
                     <label htmlFor="" className='w-full flex justify-between'>
                         <span>Background Color</span>
                         <span>{this.state.bgColorCode}</span>
                     </label>
-                    <SliderPicker className="max-w-full mt-4" color={this.state.bgColorCode} onChangeComplete={this.handleBgColorChange}/>
+                    <SliderPicker onChange={this.handleBgColorChange} className="max-w-full mt-4" color={this.state.bgColorCode}/>
                 </div>
 
                 <div className='mt-4'>
@@ -68,7 +51,7 @@ export class RightPanel extends Component {
                         <span>Border Color</span>
                         <span>{this.state.borderColorCode}</span>
                     </label>
-                    <SliderPicker className="max-w-full mt-4" color={this.state.borderColorCode} onChangeComplete={this.handleBorderColorChange}/>
+                    <SliderPicker onChange={this.handleBorderColorChange} className="max-w-full mt-4" color={this.state.borderColorCode}/>
                 </div>
 
                 <div className='mt-6'>
@@ -76,7 +59,7 @@ export class RightPanel extends Component {
                         <span>Border Radius</span>
                         <span>{this.state.borderRadius} rem</span>
                     </label>
-                    <input type="range" onChange={this.handleBorderRadiusChange} value={this.state.borderRadius} className='mt-4 w-full' min='0' max='100'/>
+                    <input type="range" name='borderRadius' value={this.state.borderRadius} className='mt-4 w-full' min='0' max='100'/>
                 </div>
 
                 <div className='mt-6'>
@@ -84,7 +67,7 @@ export class RightPanel extends Component {
                         <span>Height</span>
                         <span>{this.state.boxHeight} rem</span>
                     </label>
-                    <input type="range" onChange={this.onTrigger} value={this.state.boxHeight} className='mt-4 w-full' min='0' max='50'/>
+                    <input type="range" name='boxHeight' value={this.state.boxHeight} className='mt-4 w-full' min='0' max='50'/>
                 </div>
 
                 <div className='mt-6'>
@@ -92,9 +75,9 @@ export class RightPanel extends Component {
                         <span>Height</span>
                         <span>{this.state.boxWidth} rem</span>
                     </label>
-                    <input type="range" onChange={this.handleBoxWidthChange} value={this.state.boxWidth} className='mt-4 w-full' min='0' max='50'/>
+                    <input type="range" name='boxWidth' value={this.state.boxWidth} className='mt-4 w-full' min='0' max='50'/>
                 </div>
-            </div>
+            </form>
         </>;
     }
 }
