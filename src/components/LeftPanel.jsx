@@ -35,7 +35,7 @@ export class LeftPanel extends Component {
         this.setState({
             colorCode: color.hex
         })
-      }
+    }
 
     render() {
         return <>
