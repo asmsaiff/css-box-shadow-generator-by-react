@@ -5,32 +5,38 @@ import RightPanel from './components/RightPanel';
 
 export class App extends Component {
     state = {
-        height: '20'
+        backgroundColor: '#0891b2',
+        borderRadius: '3' + 'px',
+        width: '20' + 'rem',
+        height: '12' + 'rem',
+        boxShadow: 20 + 'px ' + 20 + 'px ' + 20 + 'px ' + 20 + 'px ' + '#d1d1d1'
     }
 
-    handleCallback = (props) =>{
-        this.setState({height: props})
+    boxProps = (props) =>{
+        this.setState(props)
+    }
+
+    boxShadowProps = (shadow) =>{
+        this.setState(shadow)
     }
 
     render() {
-        
-
+        console.log(this.state);
         return (
             <>
                 <Header />
                 
                 <div className="w-10/12 mx-auto grid grid-cols-5">
                     <div className="py-6 px-4 my-6 bg-white">
-                        <LeftPanel/>
+                        <LeftPanel boxShadowProps={this.boxShadowProps}/>
                     </div>
                     <div className="flex items-center justify-center my-6 px-4 col-span-3">
-                        <div style={{ height: '100px' }}>
+                        <div style={this.state}>
                             {/* Middle Box */}
-                            {this.state.height}
                         </div>
                     </div>
                     <div className="py-6 px-4 my-6 bg-white">
-                        <RightPanel parentCallback={this.handleCallback}/>
+                        <RightPanel boxProps={this.boxProps}/>
                     </div>
                 </div>
             </>

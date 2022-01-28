@@ -1,74 +1,45 @@
 import React, { Component } from 'react';
-import { SliderPicker } from 'react-color';
 
 export class RightPanel extends Component {
     state = {
-        bgColorCode: '#ffffff',
-        borderColorCode: 'transparent',
-        borderRadius: '0',
-        boxHeight: '20',
-        boxWidth: '20'
+        backgroundColor: '#0891b2',
+        borderRadius: '3' + 'px',
+        width: '20' + 'rem',
+        height: '12' + 'rem',
     }
 
-    handleBgColorChange = (color, event) => {
-        this.setState({
-            bgColorCode: color.hex
-        })
-    }
+    handleBox = (e) => {
+        if(e.target.name === 'backgroundColor') {
+            this.setState({
+                [e.target.name]: e.target.value
+            })
+        } else if(e.target.name === 'borderRadius') {
+            this.setState({
+                [e.target.name]: e.target.value + 'px'
+            })
+        } else {
+            this.setState({
+                [e.target.name]: e.target.value + 'rem'
+            })
+        }
 
-    handleBorderColorChange = (color, e) => {
-        this.setState({
-            borderColorCode: color.hex
-        })
-    }
-
-    handleBorderRadiusChange = (e) => {
-        this.setState({
-            borderRadius: e.target.value
-        })
-    }
-
-    handleBoxHeightChange = (e) => {
-        this.setState({
-            boxHeight: e.target.value
-        })
-    }
-
-    handleBoxWidthChange = (e) => {
-        this.setState({
-            boxWidth: e.target.value
-        })
-    }
-
-    onTrigger = (e) => {
-        this.setState({
-            boxHeight: e.target.value
-        })
-
-        this.props.parentCallback(e.target.value);
+        this.props.boxProps(this.state);
         e.preventDefault();
     }
 
     render() {
+        console.log(this.state);
         return <>
             <h6>Box Properties</h6>
             <hr />
 
-            <div className='my-6'>
+            <form className='my-6' onChange={this.handleBox}>
                 <div>
                     <label htmlFor="" className='w-full flex justify-between'>
                         <span>Background Color</span>
-                        <span>{this.state.bgColorCode}</span>
+                        <span>{this.state.backgroundColor}</span>
                     </label>
-                    <SliderPicker className="max-w-full mt-4" color={this.state.bgColorCode} onChangeComplete={this.handleBgColorChange}/>
-                </div>
-
-                <div className='mt-4'>
-                    <label htmlFor="" className='w-full flex justify-between'>
-                        <span>Border Color</span>
-                        <span>{this.state.borderColorCode}</span>
-                    </label>
-                    <SliderPicker className="max-w-full mt-4" color={this.state.borderColorCode} onChangeComplete={this.handleBorderColorChange}/>
+                    <input type="color" value={this.state.backgroundColor} name='backgroundColor' className='min-w-full'/>
                 </div>
 
                 <div className='mt-6'>
@@ -76,25 +47,25 @@ export class RightPanel extends Component {
                         <span>Border Radius</span>
                         <span>{this.state.borderRadius} rem</span>
                     </label>
-                    <input type="range" onChange={this.handleBorderRadiusChange} value={this.state.borderRadius} className='mt-4 w-full' min='0' max='100'/>
+                    <input type="range" name='borderRadius' value={this.state.borderRadius.match(/\d/g).join('')} className='mt-4 w-full' min='0' max='100'/>
+                </div>
+
+                <div className='mt-6'>
+                    <label htmlFor="" className='w-full flex justify-between'>
+                        <span>Width</span>
+                        <span>{this.state.width}</span>
+                    </label>
+                    <input type="range" name='width' value={this.state.width.match(/\d/g).join('')} className='mt-4 w-full' min='0' max='50'/>
                 </div>
 
                 <div className='mt-6'>
                     <label htmlFor="" className='w-full flex justify-between'>
                         <span>Height</span>
-                        <span>{this.state.boxHeight} rem</span>
+                        <span>{this.state.height}</span>
                     </label>
-                    <input type="range" onChange={this.onTrigger} value={this.state.boxHeight} className='mt-4 w-full' min='0' max='50'/>
+                    <input type="range" name='height' value={this.state.height.match(/\d/g).join('')} className='mt-4 w-full' min='0' max='50'/>
                 </div>
-
-                <div className='mt-6'>
-                    <label htmlFor="" className='w-full flex justify-between'>
-                        <span>Height</span>
-                        <span>{this.state.boxWidth} rem</span>
-                    </label>
-                    <input type="range" onChange={this.handleBoxWidthChange} value={this.state.boxWidth} className='mt-4 w-full' min='0' max='50'/>
-                </div>
-            </div>
+            </form>
         </>;
     }
 }
