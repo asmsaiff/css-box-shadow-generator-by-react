@@ -1,0 +1,35 @@
+
+/**
+ *  Code Editor
+**/
+.codeblock {
+	background: 0% 0%/auto repeat #abb8c3;
+    height: 100%;
+	max-width: 100%;
+	white-space: pre-wrap;
+    padding: 30px;
+}
+
+.codeDiv {
+	box-shadow: rgb(0 0 0 / 55%) 0px 20px 68px;
+	padding: 20px 30px;
+    height: 100%;
+	background-color: #151718;
+	color: #fff;
+	border-radius: 5px;
+	font-size: 12px;
+}
+
+.codeDiv p {
+    overflow-x: auto;
+}
+pre code.hljs {
+	display: block;
+	overflow-x: auto;
+	padding: 0;
+	background: transparent;
+}
+.code {
+	margin-top: 20px;
+    display: block;
+}

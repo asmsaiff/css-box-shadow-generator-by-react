@@ -35,7 +35,7 @@ export class LeftPanel extends Component {
                         <span>Horizontal Offset</span>
                         <span>{this.state.horizontalOffset}</span>
                     </label>
-                    <input type="range" value={this.state.horizontalOffset.match(/\d/g).join('')} name='horizontalOffset' className='mt-4 w-full' min='-100' max='100'/>
+                    <input type="range" name='horizontalOffset' className='mt-4 w-full' min='-100' max='100'/>
                 </div>
                 <div className='mt-6'>
                     <label htmlFor="" className='w-full flex justify-between'>
