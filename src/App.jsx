@@ -13,7 +13,7 @@ export class App extends Component {
                     <div className="py-6 px-4 my-6 bg-white">
                         <LeftPanel />
                     </div>
-                    <div className="flex items-center justify-center my-6 border-x px-4 col-span-3">
+                    <div className="flex items-center justify-center my-6 px-4 col-span-3">
                         middle box
                     </div>
                     <div className="py-6 px-4 my-6 bg-white">
