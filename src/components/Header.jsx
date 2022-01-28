@@ -10,9 +10,9 @@ export class Header extends Component {
                 <h1 className='text-white font-bold text-2xl'>Box Shadow Generator</h1>
 
                 <div className='flex justify-end'>
-                    <Link to="htt" className='bg-gray-100 hover:bg-gray-300 transition duration-300 flex gap-2 items-center px-3 py-1 rounded-sm' >
-                      <RiGithubFill /> Github
-                    </Link>
+                    <a href='https://github.com/saifullahsiddique/css-box-shadow-generator-by-react' target='_blank' className='bg-gray-100 hover:bg-gray-300 transition duration-300 flex gap-2 items-center px-3 py-1 rounded-sm text-sm' >
+                      <RiGithubFill /> Fork on Github
+                    </a>
                 </div>
             </div>
         </div>
