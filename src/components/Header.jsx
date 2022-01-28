@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { RiGithubFill } from "react-icons/ri";
+import { Link } from 'react-router-dom'
 
 export class Header extends Component {
   render() {
@@ -9,9 +10,9 @@ export class Header extends Component {
                 <h1 className='text-white font-bold text-2xl'>Box Shadow Generator</h1>
 
                 <div className='flex justify-end'>
-                    <a href="" className='bg-gray-100 hover:bg-gray-300 transition duration-300 flex gap-2 items-center px-3 py-1 rounded-sm' >
+                    <Link to="htt" className='bg-gray-100 hover:bg-gray-300 transition duration-300 flex gap-2 items-center px-3 py-1 rounded-sm' >
                       <RiGithubFill /> Github
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
