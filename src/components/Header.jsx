@@ -9,7 +9,7 @@ export class Header extends Component {
                 <h1 className='text-white text-3xl mb-4 text-center 2xl:mb-0 xl:text-6xl font-thin'>Box Shadow Generator</h1>
 
                 <div className='flex justify-end'>
-                    <a href='https://github.com/saifullahsiddique/' target='_blank' className='bg-gray-100 hover:bg-gray-300 transition duration-300 flex gap-2 items-center px-3 py-1 rounded-sm text-sm uppercase' >
+                    <a href='https://saifullah.co/' target='_blank' className='bg-gray-100 hover:bg-gray-300 transition duration-300 flex gap-2 items-center px-3 py-1 rounded-sm text-sm uppercase' >
                       <RiExternalLinkLine className="self-center"/> Get in Touch
                     </a>
                 </div>
