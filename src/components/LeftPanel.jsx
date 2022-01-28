@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { SliderPicker } from 'react-color';
 
 export class LeftPanel extends Component {
     state = {
@@ -6,7 +7,7 @@ export class LeftPanel extends Component {
         verticalOffset: 0,
         blurRadius: 0,
         spreadRadius: 0,
-        colorCode: ''
+        colorCode: '#ffffff'
     }
 
     handleHorizontalOffsetChange = (e) => {
@@ -30,9 +31,16 @@ export class LeftPanel extends Component {
         })
     }
 
+    handleColorChange = (color, event) => {
+        this.setState({
+            colorCode: color.hex
+        })
+    }
+
     render() {
         return <>
             <h6>Generate Shadow</h6>
+            <hr />
 
             <div className='my-6'>
                 <div>
@@ -61,14 +69,14 @@ export class LeftPanel extends Component {
                         <span>Blur Radius</span>
                         <span>{this.state.spreadRadius} px</span>
                     </label>
-                    <input type="range" onChange={this.spreadRadiusChange} value={this.state.spreadRadius} className='mt-4 w-full' min='-100' max='100'/>
+                    <input type="range" onChange={this.spreadRadiusChange} value={this.state.spreadRadius} className='mt-4 w-full' min='0' max='100'/>
                 </div>
                 <div className='mt-6'>
                     <label htmlFor="" className='w-full flex justify-between'>
-                        <span>Color</span>
+                        <span>Shadow Color</span>
                         <span>{this.state.colorCode} px</span>
                     </label>
-                    <input type="text" onChange={this.colorCodeChange} value={this.state.colorCode} className='mt-4 w-full border-b border-black py-2 text-sm focus:outline-none' placeholder='Input Color Code'/>
+                    <SliderPicker className="max-w-full mt-4" color={this.state.colorCode} onChangeComplete={this.handleColorChange}/>
                 </div>
             </div>
         </>;
