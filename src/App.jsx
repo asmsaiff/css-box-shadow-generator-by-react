@@ -10,13 +10,13 @@ export class App extends Component {
                 <Header />
                 
                 <div className="w-10/12 mx-auto grid grid-cols-5">
-                    <div className="py-6">
+                    <div className="py-6 pr-4">
                         <LeftPanel />
                     </div>
-                    <div className="flex items-center col-span-3">
+                    <div className="flex items-center bg-gray-100 justify-center border-x px-4 col-span-3">
                         middle box
                     </div>
-                    <div className="h-96 py-6">
+                    <div className="py-6 pl-4">
                         <RightPanel />
                     </div>
                 </div>
