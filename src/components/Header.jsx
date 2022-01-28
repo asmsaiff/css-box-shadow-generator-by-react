@@ -6,7 +6,7 @@ export class Header extends Component {
   render() {
     return <>
         <div className="py-4 bg-cyan-600">
-            <div className="w-8/12 mx-auto flex justify-between items-center">
+            <div className="w-10/12 mx-auto flex justify-between items-center">
                 <h1 className='text-white font-bold text-2xl'>Box Shadow Generator</h1>
 
                 <div className='flex justify-end'>
