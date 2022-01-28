@@ -29,7 +29,7 @@ export class App extends Component {
                 <div className='flex flex-col min-h-screen justify-between'>
                     <Header />
                     
-                    <div className="flex-grow w-10/12 mx-auto grid grid-cols-1 2xl:grid-cols-5">
+                    <div className="flex-grow px-4 sm:w-10/12 mx-auto grid grid-cols-1 xl:grid-cols-5">
                         <div className="py-6 px-4 my-6 bg-white">
                             <LeftPanel boxShadowProps={this.boxShadowProps}/>
                         </div>
