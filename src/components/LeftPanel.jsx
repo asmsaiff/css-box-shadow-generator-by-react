@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { SliderPicker } from 'react-color';
 
 export class LeftPanel extends Component {
     state = {
@@ -7,7 +6,7 @@ export class LeftPanel extends Component {
         verticalOffset: 0,
         blurRadius: 0,
         spreadRadius: 0,
-        colorCode: '#ffffff'
+        shadowColor: '#DBDBDB'
     }
 
     handleHorizontalOffsetChange = (e) => {
@@ -42,7 +41,7 @@ export class LeftPanel extends Component {
             <h6>Generate Shadow</h6>
             <hr />
 
-            <div className='my-6'>
+            <form className='my-6'>
                 <div>
                     <label htmlFor="" className='w-full flex justify-between'>
                         <span>Horizontal Offset</span>
@@ -74,11 +73,11 @@ export class LeftPanel extends Component {
                 <div className='mt-6'>
                     <label htmlFor="" className='w-full flex justify-between'>
                         <span>Shadow Color</span>
-                        <span>{this.state.colorCode}</span>
+                        <span>{this.state.shadowColor}</span>
                     </label>
-                    <SliderPicker className="max-w-full mt-4" color={this.state.colorCode} onChangeComplete={this.handleColorChange}/>
+                    <input type="color" value={this.state.shadowColor} name='shadowColor' className='min-w-full'/>
                 </div>
-            </div>
+            </form>
         </>;
     }
 }

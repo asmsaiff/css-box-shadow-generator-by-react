@@ -5,16 +5,17 @@ import RightPanel from './components/RightPanel';
 
 export class App extends Component {
     state = {
-        height: '20'
+        backgroundColor: '#0891b2',
+        borderRadius: '3' + 'px',
+        width: '20' + 'rem',
+        height: '12' + 'rem',
     }
 
-    handleCallback = (props) =>{
-        this.setState({height: props})
+    boxProps = (props) =>{
+        this.setState(props)
     }
 
     render() {
-        
-
         return (
             <>
                 <Header />
@@ -24,13 +25,12 @@ export class App extends Component {
                         <LeftPanel/>
                     </div>
                     <div className="flex items-center justify-center my-6 px-4 col-span-3">
-                        <div style={{ height: '100px' }}>
+                        <div style={this.state}>
                             {/* Middle Box */}
-                            {this.state.height}
                         </div>
                     </div>
                     <div className="py-6 px-4 my-6 bg-white">
-                        <RightPanel parentCallback={this.handleCallback}/>
+                        <RightPanel boxProps={this.boxProps}/>
                     </div>
                 </div>
             </>
