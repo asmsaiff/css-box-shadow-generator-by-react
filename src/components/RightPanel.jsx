@@ -40,6 +40,15 @@ export class RightPanel extends Component {
         })
     }
 
+    onTrigger = (e) => {
+        this.setState({
+            boxHeight: e.target.value
+        })
+
+        this.props.parentCallback(e.target.value);
+        e.preventDefault();
+    }
+
     render() {
         return <>
             <h6>Box Properties</h6>
@@ -49,7 +58,7 @@ export class RightPanel extends Component {
                 <div>
                     <label htmlFor="" className='w-full flex justify-between'>
                         <span>Background Color</span>
-                        <span>{this.state.bgColorCode} px</span>
+                        <span>{this.state.bgColorCode}</span>
                     </label>
                     <SliderPicker className="max-w-full mt-4" color={this.state.bgColorCode} onChangeComplete={this.handleBgColorChange}/>
                 </div>
@@ -57,7 +66,7 @@ export class RightPanel extends Component {
                 <div className='mt-4'>
                     <label htmlFor="" className='w-full flex justify-between'>
                         <span>Border Color</span>
-                        <span>{this.state.borderColorCode} {this.state.borderColorCode == 'transparent' ? '' : 'px'}</span>
+                        <span>{this.state.borderColorCode}</span>
                     </label>
                     <SliderPicker className="max-w-full mt-4" color={this.state.borderColorCode} onChangeComplete={this.handleBorderColorChange}/>
                 </div>
@@ -75,7 +84,7 @@ export class RightPanel extends Component {
                         <span>Height</span>
                         <span>{this.state.boxHeight} rem</span>
                     </label>
-                    <input type="range" onChange={this.handleBoxHeightChange} value={this.state.boxHeight} className='mt-4 w-full' min='0' max='50'/>
+                    <input type="range" onChange={this.onTrigger} value={this.state.boxHeight} className='mt-4 w-full' min='0' max='50'/>
                 </div>
 
                 <div className='mt-6'>

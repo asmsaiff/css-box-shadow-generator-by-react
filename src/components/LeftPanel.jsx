@@ -74,7 +74,7 @@ export class LeftPanel extends Component {
                 <div className='mt-6'>
                     <label htmlFor="" className='w-full flex justify-between'>
                         <span>Shadow Color</span>
-                        <span>{this.state.colorCode} px</span>
+                        <span>{this.state.colorCode}</span>
                     </label>
                     <SliderPicker className="max-w-full mt-4" color={this.state.colorCode} onChangeComplete={this.handleColorChange}/>
                 </div>
