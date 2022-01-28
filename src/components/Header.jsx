@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { RiGithubFill } from "react-icons/ri";
+import { RiExternalLinkLine, RiGithubFill } from "react-icons/ri";
 import { Link } from 'react-router-dom'
 
 export class Header extends Component {
@@ -10,8 +10,8 @@ export class Header extends Component {
                 <h1 className='text-white font-bold text-2xl'>Box Shadow Generator</h1>
 
                 <div className='flex justify-end'>
-                    <a href='https://github.com/saifullahsiddique/css-box-shadow-generator-by-react' target='_blank' className='bg-gray-100 hover:bg-gray-300 transition duration-300 flex gap-2 items-center px-3 py-1 rounded-sm text-sm' >
-                      <RiGithubFill /> Fork on Github
+                    <a href='https://github.com/saifullahsiddique/' target='_blank' className='bg-gray-100 hover:bg-gray-300 transition duration-300 flex gap-2 items-center px-3 py-1 rounded-sm text-sm uppercase' >
+                      <RiExternalLinkLine className="self-center"/> Get in Touch
                     </a>
                 </div>
             </div>

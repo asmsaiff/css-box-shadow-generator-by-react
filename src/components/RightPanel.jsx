@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 export class RightPanel extends Component {
     state = {
-        backgroundColor: '#0891b2',
+        // backgroundColor: '#0891b2',
         borderRadius: '3' + 'px',
-        width: '20' + 'rem',
+        width: '30' + 'rem',
         height: '12' + 'rem',
     }
 
@@ -34,13 +34,13 @@ export class RightPanel extends Component {
             <hr />
 
             <form className='my-6' onChange={this.handleBox}>
-                <div>
+                {/* <div>
                     <label htmlFor="" className='w-full flex justify-between'>
                         <span>Background Color</span>
                         <span>{this.state.backgroundColor}</span>
                     </label>
                     <input type="color" value={this.state.backgroundColor} name='backgroundColor' className='min-w-full'/>
-                </div>
+                </div> */}
 
                 <div className='mt-6'>
                     <label htmlFor="" className='w-full flex justify-between'>
