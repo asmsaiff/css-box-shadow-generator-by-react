@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export class ColorInput extends Component {
     render() {
-        const [label, type, name, cssValue]    =   this.props
+        const {label, type, name, cssValue}    =   this.props
         return <>
             <div className='mt-6'>
                 <label htmlFor={name} className='w-full flex justify-between'>
