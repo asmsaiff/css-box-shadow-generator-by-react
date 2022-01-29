@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Input extends Component {
+export class RangeInput extends Component {
     render() {
         const [label, type, name, cssValue, min, max]    =   this.props
         return <>
@@ -15,4 +15,4 @@ export class Input extends Component {
     }
 }
 
-export default Input;
+export default RangeInput;
