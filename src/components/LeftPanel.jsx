@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ColorInput from './Fields/ColorInput';
+import RangeInput from './Fields/RangeInput';
 
 export class LeftPanel extends Component {
     state = {
@@ -30,41 +32,48 @@ export class LeftPanel extends Component {
             <hr />
 
             <form className='my-6' onChange={this.handleBoxShadow}>
-                <div>
-                    <label htmlFor="" className='w-full flex justify-between'>
-                        <span>Horizontal Offset</span>
-                        <span>{this.state.horizontalOffset}</span>
-                    </label>
-                    <input type="range" name='horizontalOffset' className='mt-4 w-full' min='-100' max='100'/>
-                </div>
-                <div className='mt-6'>
-                    <label htmlFor="" className='w-full flex justify-between'>
-                        <span>Vertical Offset</span>
-                        <span>{this.state.verticalOffset} px</span>
-                    </label>
-                    <input type="range" name='verticalOffset' className='mt-4 w-full' min='-100' max='100'/>
-                </div>
-                <div className='mt-6'>
-                    <label htmlFor="" className='w-full flex justify-between'>
-                        <span>Blur Radius</span>
-                        <span>{this.state.blurRadius} px</span>
-                    </label>
-                    <input type="range" name='blurRadius' value={this.state.blurRadius.match(/\d/g).join('')}  className='mt-4 w-full' min='0' max='100'/>
-                </div>
-                <div className='mt-6'>
-                    <label htmlFor="" className='w-full flex justify-between'>
-                        <span>Spread Radius Radius</span>
-                        <span>{this.state.spreadRadius} px</span>
-                    </label>
-                    <input type="range" name='spreadRadius' value={this.state.spreadRadius.match(/\d/g).join('')} className='mt-4 w-full' min='0' max='100'/>
-                </div>
-                <div className='mt-6'>
-                    <label htmlFor="" className='w-full flex justify-between'>
-                        <span>Shadow Color</span>
-                        <span>{this.state.shadowColor}</span>
-                    </label>
-                    <input type="color" value={this.state.shadowColor} name='shadowColor' className='min-w-full'/>
-                </div>
+                <RangeInput 
+                    label="Horizontal Offset" 
+                    type="range" 
+                    name="horizontalOffset" 
+                    cssValue={this.state.horizontalOffset} 
+                    min="-100" 
+                    max="100"
+                />
+
+                <RangeInput 
+                    label="Vertical Offset" 
+                    type="range" 
+                    name="verticalOffset" 
+                    cssValue={this.state.verticalOffset} 
+                    min="-100" 
+                    max="100"
+                />
+
+                <RangeInput 
+                    label="Blur Radius" 
+                    type="range" 
+                    name="blurRadius" 
+                    cssValue={this.state.blurRadius} 
+                    min="0" 
+                    max="100"
+                />
+
+                <RangeInput 
+                    label="Spread Radius Radius" 
+                    type="range" 
+                    name="spreadRadius" 
+                    cssValue={this.state.spreadRadius} 
+                    min="0" 
+                    max="100"
+                />
+
+                <ColorInput 
+                    label="Spread Radius Radius" 
+                    type="color" 
+                    name="shadowColor" 
+                    cssValue={this.state.shadowColor}
+                />
             </form>
         </>;
     }
