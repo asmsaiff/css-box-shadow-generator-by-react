@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import ColorInput from './Fields/ColorInput';
+import RangeInput from './Fields/RangeInput';
 
 export class RightPanel extends Component {
     state = {
-        // backgroundColor: '#0891b2',
+        backgroundColor: '#abb8c3',
         borderRadius: '3' + 'px',
         width: '30' + 'rem',
-        height: '12' + 'rem',
+        height: '15' + 'rem',
     }
 
     handleBox = (e) => {
@@ -28,43 +30,44 @@ export class RightPanel extends Component {
     }
 
     render() {
-        console.log(this.state);
         return <>
             <h6>Box Properties</h6>
             <hr />
 
             <form className='my-6' onChange={this.handleBox}>
-                {/* <div>
-                    <label htmlFor="" className='w-full flex justify-between'>
-                        <span>Background Color</span>
-                        <span>{this.state.backgroundColor}</span>
-                    </label>
-                    <input type="color" value={this.state.backgroundColor} name='backgroundColor' className='min-w-full'/>
-                </div> */}
+                <RangeInput 
+                    label="Width" 
+                    type="range" 
+                    name="width" 
+                    cssValue={this.state.width} 
+                    min="27" 
+                    max="50"
+                />
 
-                <div className='mt-6'>
-                    <label htmlFor="" className='w-full flex justify-between'>
-                        <span>Border Radius</span>
-                        <span>{this.state.borderRadius} rem</span>
-                    </label>
-                    <input type="range" name='borderRadius' value={this.state.borderRadius.match(/\d/g).join('')} className='mt-4 w-full' min='0' max='100'/>
-                </div>
+                <RangeInput 
+                    label="Height" 
+                    type="range" 
+                    name="height" 
+                    cssValue={this.state.height} 
+                    min="15" 
+                    max="25"
+                />
 
-                <div className='mt-6'>
-                    <label htmlFor="" className='w-full flex justify-between'>
-                        <span>Width</span>
-                        <span>{this.state.width}</span>
-                    </label>
-                    <input type="range" name='width' value={this.state.width.match(/\d/g).join('')} className='mt-4 w-full' min='0' max='50'/>
-                </div>
+                <RangeInput 
+                    label="Border Radius" 
+                    type="range" 
+                    name="borderRadius" 
+                    cssValue={this.state.borderRadius} 
+                    min="3" 
+                    max="100"
+                />
 
-                <div className='mt-6'>
-                    <label htmlFor="" className='w-full flex justify-between'>
-                        <span>Height</span>
-                        <span>{this.state.height}</span>
-                    </label>
-                    <input type="range" name='height' value={this.state.height.match(/\d/g).join('')} className='mt-4 w-full' min='0' max='50'/>
-                </div>
+                <ColorInput 
+                    label="Background Color" 
+                    type="color" 
+                    name="backgroundColor" 
+                    cssValue={this.state.backgroundColor}
+                />
             </form>
         </>;
     }

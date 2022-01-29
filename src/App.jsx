@@ -1,17 +1,20 @@
 import React, { Component, useEffect } from 'react'
 import Footer from './components/Footer';
 import Header from './components/Header';
+import EditorIcon from './components/Icons/EditorIcon';
 import LeftPanel from './components/LeftPanel';
 import RightPanel from './components/RightPanel';
 
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
 
 export class App extends Component {
-
     state = {
-        backgroundColor: '#0891b2',
+        backgroundColor: '#abb8c3',
         borderRadius: '3' + 'px',
         width: '30' + 'rem',
-        height: '12' + 'rem',
+        height: '15' + 'rem',
         boxShadow: 20 + 'px ' + 20 + 'px ' + 20 + 'px ' + 20 + 'px ' + '#d1d1d1'
     }
 
@@ -34,17 +37,35 @@ export class App extends Component {
                             <LeftPanel boxShadowProps={this.boxShadowProps}/>
                         </div>
                         <div className="flex items-center justify-center my-6 px-4 col-span-3">
-                            <div style={this.state}>
+                            <div style={this.state} >
                                 {/* Middle Box */}
 
-                                <pre class="codeblock">
-            <div class="codeDiv">
-    <svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg>
-    <code class="code language-javascript">
-    box-shadow: {this.state.boxShadow + ';'}
-    </code>
-            </div>
-        </pre>
+                                <pre className="codeblock" style={this.state}>
+                                    <div className="codeDiv" >
+                                        <EditorIcon />
+                                        <SyntaxHighlighter 
+                                            className="mt-4" 
+                                            language="html" 
+                                            style={nightOwl} 
+                                            showLineNumbers={true}
+                                            customStyle={
+                                                { 
+                                                    backgroundColor: 'transparent',
+                                                    padding: '0'
+                                                }
+                                            }
+                                            lineNumberStyle={
+                                                { 
+                                                    opacity: '.4',
+                                                    padding: '0',
+                                                    textAlign: 'left'
+                                                }
+                                            }
+                                        >
+                                            {"box-shadow" + ": " + this.state.boxShadow + ';'}
+                                        </SyntaxHighlighter>
+                                    </div>
+                                </pre>
                             </div>
                         </div>
                         <div className="py-6 px-4 my-6 bg-white">
