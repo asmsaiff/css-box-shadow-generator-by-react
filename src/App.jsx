@@ -8,6 +8,8 @@ import RightPanel from './components/RightPanel';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
+//importing a  copy-to-clipboard pakage
+import copy from "copy-to-clipboard";
 
 export class App extends Component {
     state = {
@@ -26,6 +28,14 @@ export class App extends Component {
         this.setState(shadow)
     }
 
+    //function for copy the code to the clipboard
+    copyToClickboard = () => {
+        //using a copy function which is imported above
+        copy(`box-shadow : ${this.state.boxShadow}`)
+        //alert message for user ,showing that the code is copied
+        alert("Copied to Clipboard")
+    }
+
     render() {
         return (
             <>
@@ -41,7 +51,8 @@ export class App extends Component {
                                 {/* Middle Box */}
 
                                 <pre className="codeblock" style={this.state}>
-                                    <div className="codeDiv" >
+                                    {/*adding a onClick event */}
+                                    <div className="codeDiv" onClick = {()=> this.copyToClickboard()}>
                                         <EditorIcon />
                                         <SyntaxHighlighter 
                                             className="mt-4" 
